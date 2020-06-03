@@ -1,5 +1,7 @@
 import time
 import random
+from django.conf import settings
+
 
 def slowdown(get_response):
     # One-time configuration and initialization.
@@ -12,7 +14,17 @@ def slowdown(get_response):
 
         # Code to be executed for each request/response after
         # the view is called.
-        time.sleep(random.randint(2,10))
+        
+        try:
+            max_ = settings.SLOW_MAX
+        except NameError:
+            max_ = 5
+        
+        try:
+            min_ = settings.SLOW_min
+        except NameError:
+            min_ = 2
+        time.sleep(random.randint(min_,max_))
         return response
 
     return middleware

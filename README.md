@@ -14,6 +14,9 @@ pip install slow_django
 
 import slow_django
 
+SLOW_MIN = 2 # Minimum page load in seconds
+SLOW_MAX = 10 # Maximum-ish page load in seconds
+
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
