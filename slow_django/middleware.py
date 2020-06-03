@@ -1,4 +1,5 @@
 import time
+import random
 
 def slowdown(get_response):
     # One-time configuration and initialization.
@@ -11,7 +12,7 @@ def slowdown(get_response):
 
         # Code to be executed for each request/response after
         # the view is called.
-        time.sleep(5)
+        time.sleep(random.randint(2,10))
         return response
 
     return middleware
