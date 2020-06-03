@@ -21,9 +21,10 @@ def slowdown(get_response):
             max_ = 5
         
         try:
-            min_ = settings.SLOW_min
+            min_ = settings.SLOW_MIN
         except NameError:
             min_ = 2
+            
         time.sleep(random.randint(min_,max_))
         return response
 
